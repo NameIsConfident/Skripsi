@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Eksplorasi PO-5</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/eksplorasi.css">
+
+</head>
+
+<body>
+
+<canvas id="bgCanvas"></canvas>
+<div class="fog-layer"></div>
+<div class="overlay"></div>
+
+<button class="back-btn" onclick="navigate('kampanye.html')">
+← Kembali
+</button>
+
+<button class="exit-btn" onclick="exitSession()">
+Keluar
+</button>
+
+<div class="reading-progress">
+<div class="reading-fill" id="readingFill"></div>
+</div>
+
+<div class="user-greeting" id="userGreeting">
+Hai Pengguna
+</div>
+
+<div class="eksplorasi-container">
+
+<div class="title">
+Eksplorasi Nilai PO-5
+<span>Klik setiap nilai untuk melihat penjelasan</span>
+</div>
+
+
+<!-- Progress -->
+<div class="explore-progress">
+
+<div class="progress-title">
+Progress Eksplorasi
+</div>
+
+<div class="progress-grid">
+<div class="progress-item" data-nilai="pomaa">Pomaa</div>
+<div class="progress-item" data-nilai="popia">Popia</div>
+<div class="progress-item" data-nilai="pomae">Pomae</div>
+<div class="progress-item" data-nilai="poangka">Poangka</div>
+<div class="progress-item" data-nilai="pobinci">Pobinci</div>
+</div>
+
+</div>
+
+
+<!-- Fact -->
+<div class="fact-box" id="factBox"></div>
+
+
+<!-- Scenario -->
+<div class="scenario-box">
+
+<h3>Simulasi Sosial</h3>
+
+<p>
+Seseorang mengalami perlakuan yang mempermalukan di depan umum. 
+Respons yang paling tepat dapat dipilih pada situasi berikut.
+</p>
+
+<div class="scenario-options">
+
+<button onclick="chooseScenario('poangka')">
+Membela dan menghentikan ejekan
+</button>
+
+<button onclick="chooseScenario('pomae')">
+Menegur dengan sopan
+</button>
+
+<button onclick="chooseScenario('none')">
+Diam saja
+</button>
+
+</div>
+
+<div class="scenario-result" id="scenarioResult"></div>
+
+</div>
+
+
+<!-- Quiz -->
+<div class="mini-quiz">
+
+<h3>Quiz Cepat</h3>
+
+<p id="quizQuestion">
+Kemampuan memahami perasaan orang lain termasuk dalam nilai...
+</p>
+
+<div class="quiz-options">
+
+<button onclick="answerQuiz(this,true)">
+Pobinci-binciki kuli
+</button>
+
+<button onclick="answerQuiz(this,false)">
+Popia-piara
+</button>
+
+<button onclick="answerQuiz(this,false)">
+Pomae-maeaka
+</button>
+
+</div>
+
+<div class="quiz-result" id="quizResult"></div>
+
+</div>
+
+
+<!-- Cards -->
+<!-- Cards -->
+<div class="card-grid">
+
+    <!-- Pomaa -->
+    <div class="card">
+        <div class="card-title">Pomaa-masiaka</div>
+
+        <div class="card-content">
+
+            <div class="card-media">
+             <img src="img/pomaa.png" alt="Poangka-Angkataka">
+              </div>
+<!-- 
+            <div class="media-box video-placeholder">
+                [Video Interaktif]
+            </div> -->
+
+            <p>
+                Nilai yang mengajarkan saling menyayangi antar sesama manusia.
+            </p>
+
+            <div class="example">
+                Contoh nyata:
+                • Bantuan diberikan kepada individu yang mengalami kesulitan  
+                • Kekurangan orang lain tidak dijadikan bahan ejekan  
+                • Dukungan diberikan ketika seseorang mengalami kegagalan
+            </div>
+            <div class="reflection">
+    Dalam ruang digital, interaksi positif dan komentar yang membangun
+    dapat mencerminkan nilai Pomaa-masiaka.
+</div>
+
+<div class="impact">
+    Jika nilai ini tidak diterapkan, hubungan sosial dapat menjadi
+    kurang hangat dan minim empati.
+</div>
+            
+
+        </div>
+    </div>
+
+
+    <!-- Popia -->
+    <div class="card">
+        <div class="card-title">Popia-piara</div>
+
+        <div class="card-content">
+
+            <div class="card-media">
+             <img src="img/popia.png" alt="Poangka-Angkataka">
+              </div>
+
+            <!-- <div class="media-box video-placeholder">
+                [Video Interaktif]
+            </div> -->
+
+            <p>
+                Nilai yang berkaitan dengan perlindungan dan penjagaan hubungan sosial.
+            </p>
+
+            <div class="example">
+                Contoh nyata:
+                • Pengingat disampaikan dengan baik  
+                • Privasi individu dijaga  
+                • Perlakuan tidak adil dicegah
+            </div>
+            <div class="reflection">
+    Dalam lingkungan digital, perlindungan privasi dan rasa saling menjaga
+    dapat mencerminkan nilai Popia-piara.
+</div>
+
+<div class="impact">
+    Jika nilai ini diabaikan, kepercayaan sosial dapat mengalami penurunan.
+</div>
+
+        </div>
+    </div>
+
+
+    <!-- Pomae -->
+    <div class="card">
+        <div class="card-title">Pomae-maeaka</div>
+
+        <div class="card-content">
+
+            <div class="card-media">
+             <img src="img/pomae.png" alt="Poangka-Angkataka">
+              </div>
+
+            <!-- <div class="media-box video-placeholder">
+                [Video Interaktif]
+            </div> -->
+
+            <p>
+                Nilai yang menekankan etika dan rasa malu dalam kehidupan sosial.
+            </p>
+
+            <div class="example">
+                Contoh nyata:
+                • Perilaku yang mempermalukan orang lain dihindari  
+                • Etika komunikasi dijaga  
+                • Perbedaan dihormati
+            </div>
+            <div class="reflection">
+    Etika dalam berkomunikasi tetap diperlukan, termasuk saat
+    menyampaikan pendapat di media digital.
+</div>
+
+<div class="impact">
+    Jika nilai ini diabaikan, konflik verbal dan perilaku merendahkan
+    dapat lebih mudah terjadi.
+</div>
+
+        </div>
+    </div>
+
+
+    <!-- Poangka -->
+    <div class="card highlight">
+        <div class="card-title">Poangka-Angkataka</div>
+
+        <div class="card-content">
+
+            <div class="card-media">
+             <img src="img/poangka.png" alt="Poangka-Angkataka">
+              </div>
+
+            <!-- <div class="media-box video-placeholder">
+                [Video Interaktif]
+            </div> -->
+
+            <p>
+                Nilai utama yang berkaitan dengan martabat dan penghormatan sesama.
+            </p>
+
+            <div class="example">
+                Contoh nyata:
+                • Perilaku merendahkan dihindari  
+                • Apresiasi diberikan terhadap usaha orang lain  
+                • Kehormatan sesama dijaga
+            </div>
+            <div class="reflection">
+    Dalam interaksi sosial modern, penghormatan terhadap martabat
+    individu tetap perlu dijaga.
+</div>
+
+<div class="impact">
+    Jika nilai ini tidak diterapkan, lingkungan sosial dapat dipenuhi
+    konflik dan penghinaan.
+</div>
+
+            <button class="mulai-btn" id="mulaiBtn">
+                Masuk Modul Interaktif
+            </button>
+
+        </div>
+    </div>
+
+
+    <!-- Pobinci -->
+    <div class="card">
+        <div class="card-title">Pobinci-binciki kuli</div>
+
+        <div class="card-content">
+
+           <div class="card-media">
+             <img src="img/pobinci.png" alt="Poangka-Angkataka">
+              </div>
+
+            <!-- <div class="media-box video-placeholder">
+                [Video Interaktif]
+            </div> -->
+
+            <p>
+                Nilai empati sosial yang memandang orang lain seperti diri sendiri.
+            </p>
+
+            <div class="example">
+                Contoh nyata:
+                • Informasi yang merugikan tidak disebarluaskan  
+                • Perundungan dihindari  
+                • Perasaan sesama dipahami
+            </div>
+            <div class="reflection">
+    Empati sosial membantu seseorang mempertimbangkan dampak
+    dari ucapan maupun tindakan.
+</div>
+
+<div class="impact">
+    Jika nilai ini hilang, kebencian dan permusuhan dapat berkembang.
+</div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="js/script.js"></script>
+<script src="js/eksplorasi.js"></script>
+
+</body>
+</html>
